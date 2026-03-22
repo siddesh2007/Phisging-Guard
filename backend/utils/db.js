@@ -5,9 +5,21 @@
  */
 
 const fs   = require('fs');
+const os   = require('os');
 const path = require('path');
 
-const DB_PATH = path.join(__dirname, '../data/scans.json');
+const isVercel = Boolean(process.env.VERCEL);
+const dataDir = isVercel
+  ? path.join(os.tmpdir(), 'phishguard-data')
+  : path.join(__dirname, '../data');
+const DB_PATH = path.join(dataDir, 'scans.json');
+
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+if (!fs.existsSync(DB_PATH)) {
+  fs.writeFileSync(DB_PATH, JSON.stringify({ scans: [] }, null, 2));
+}
 
 /** Read the database */
 function readDb() {
