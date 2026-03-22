@@ -1,0 +1,199 @@
+{
+  "scans": [
+    {
+      "id": "1774167534003",
+      "url": "http://paypal.verify-account.tk/login?user=test@secure",
+      "status": "Dangerous",
+      "score": 100,
+      "reasons": [
+        "URL uses insecure HTTP instead of HTTPS",
+        "URL contains \"@\" symbol — browser ignores everything before it (deceptive)",
+        "Contains phishing keyword: \"login\"",
+        "Contains phishing keyword: \"verify\"",
+        "Contains phishing keyword: \"secure\"",
+        "Contains phishing keyword: \"account\"",
+        "Brand spoofing detected: \"paypal\" appears in subdomain but domain is \"verify-account.tk\" — classic phishing tactic",
+        "Domain uses suspicious free/obscure TLD: \".tk\"",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:18:54.003Z"
+    },
+    {
+      "id": "1774167513127",
+      "url": "http://microsoft-account-login-verify.com/update/password",
+      "status": "Dangerous",
+      "score": 85,
+      "reasons": [
+        "URL uses insecure HTTP instead of HTTPS",
+        "Domain contains 3 hyphens — often used in fake brand domains (e.g. paypal-secure-login.com)",
+        "Contains phishing keyword: \"login\"",
+        "Contains phishing keyword: \"verify\"",
+        "Contains phishing keyword: \"update\"",
+        "Contains phishing keyword: \"account\"",
+        "Contains phishing keyword: \"password\"",
+        "Possible brand impersonation: \"microsoft\" embedded in domain \"microsoft-account-login-verify.com\"",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:18:33.127Z"
+    },
+    {
+      "id": "1774167512784",
+      "url": "https://paypal.fake-domain.com/account/verify",
+      "status": "Suspicious",
+      "score": 55,
+      "reasons": [
+        "Contains phishing keyword: \"verify\"",
+        "Contains phishing keyword: \"account\"",
+        "Brand spoofing detected: \"paypal\" appears in subdomain but domain is \"fake-domain.com\" — classic phishing tactic",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:18:32.784Z"
+    },
+    {
+      "id": "1774167512420",
+      "url": "http://192.168.1.1/banking/login",
+      "status": "Suspicious",
+      "score": 70,
+      "reasons": [
+        "URL uses insecure HTTP instead of HTTPS",
+        "Hostname is a raw IP address — legitimate sites use domain names",
+        "Contains phishing keyword: \"login\"",
+        "Contains phishing keyword: \"banking\"",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:18:32.420Z"
+    },
+    {
+      "id": "1774167511972",
+      "url": "http://paypal.verify-account.tk/login?user=test@secure",
+      "status": "Dangerous",
+      "score": 100,
+      "reasons": [
+        "URL uses insecure HTTP instead of HTTPS",
+        "URL contains \"@\" symbol — browser ignores everything before it (deceptive)",
+        "Contains phishing keyword: \"login\"",
+        "Contains phishing keyword: \"verify\"",
+        "Contains phishing keyword: \"secure\"",
+        "Contains phishing keyword: \"account\"",
+        "Brand spoofing detected: \"paypal\" appears in subdomain but domain is \"verify-account.tk\" — classic phishing tactic",
+        "Domain uses suspicious free/obscure TLD: \".tk\"",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:18:31.973Z"
+    },
+    {
+      "id": "1774167366674",
+      "url": "https://mega.nz/file/aNcUBLgQ#WFrnJLFlOPLuwS2NIj5CeWKDk7QixQZzSp4DRYgabZk",
+      "status": "Safe",
+      "score": 0,
+      "reasons": [
+        "No suspicious patterns detected",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:16:06.674Z"
+    },
+    {
+      "id": "1774167322383",
+      "url": "https://sub2unlock.io/7LKr2",
+      "status": "Safe",
+      "score": 0,
+      "reasons": [
+        "No suspicious patterns detected",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:15:22.383Z"
+    },
+    {
+      "id": "1774167114030",
+      "url": "https://www.testsite.dev/dashboard",
+      "status": "Safe",
+      "score": 0,
+      "reasons": [
+        "No suspicious patterns detected",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:11:54.030Z"
+    },
+    {
+      "id": "1774167080329",
+      "url": "http://evil.com",
+      "status": "Safe",
+      "score": 20,
+      "reasons": [
+        "URL uses insecure HTTP instead of HTTPS",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:11:20.329Z"
+    },
+    {
+      "id": "1774167005601",
+      "url": "https://www.mediafire.com/file/yk3pzh3y7qhcugn/GTA5-not-opening-fix.rar/file",
+      "status": "Safe",
+      "score": 10,
+      "reasons": [
+        "URL is suspiciously long (76 chars > 75)",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:10:05.601Z"
+    },
+    {
+      "id": "1774166994160",
+      "url": "https://www.mediafire.com/file/yk3pzh3y7qhcugn/GTA5-not-opening-fix.rar/file",
+      "status": "Safe",
+      "score": 10,
+      "reasons": [
+        "URL is suspiciously long (76 chars > 75)",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:09:54.160Z"
+    },
+    {
+      "id": "1774166875610",
+      "url": "https://dev-c.com/GTAV/scripthookv",
+      "status": "Safe",
+      "score": 0,
+      "reasons": [
+        "No suspicious patterns detected",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:07:55.610Z"
+    },
+    {
+      "id": "1774166795662",
+      "url": "https://safeonweb.be/en/help-i-clicked-fake-link",
+      "status": "Safe",
+      "score": 0,
+      "reasons": [
+        "No suspicious patterns detected",
+        "Domain age could not be determined (WHOIS unavailable)"
+      ],
+      "vtData": null,
+      "domainAge": null,
+      "timestamp": "2026-03-22T08:06:35.663Z"
+    }
+  ]
+}

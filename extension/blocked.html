@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚠️ Dangerous Site Blocked — PhishGuard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:     #ef4444;
+      --red-dim: #7f1d1d;
+      --bg:      #0a0505;
+      --surface: #130808;
+      --border:  #3a1010;
+      --text:    #f0e8e8;
+      --muted:   #9a7a7a;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(239,68,68,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(239,68,68,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridShift 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes gridShift {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(40px); }
+    }
+
+    /* Pulsing glow behind card */
+    .glow {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(239,68,68,0.12) 0%, transparent 70%);
+      animation: glowPulse 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+      50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    /* Main card */
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--red-dim);
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(239,68,68,0.1),
+        0 0 40px rgba(239,68,68,0.08),
+        0 24px 60px rgba(0,0,0,0.5);
+      animation: cardIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: scale(0.92) translateY(20px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Shield icon */
+    .shield {
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 24px;
+      animation: shake 0.5s ease 0.5s both;
+      filter: drop-shadow(0 0 20px rgba(239,68,68,0.5));
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0); }
+      20%       { transform: rotate(-5deg); }
+      40%       { transform: rotate(5deg); }
+      60%       { transform: rotate(-3deg); }
+      80%       { transform: rotate(3deg); }
+    }
+
+    /* Danger badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239,68,68,0.15);
+      border: 1px solid var(--red-dim);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 6px; height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: blink 1s ease infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.2; }
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* Score pill */
+    .score-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(239,68,68,0.1);
+      border: 1px solid var(--red-dim);
+      border-radius: 12px;
+      padding: 10px 20px;
+      margin-bottom: 28px;
+    }
+
+    .score-pill .label {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+    }
+
+    .score-pill .value {
+      font-family: 'Space Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--red);
+    }
+
+    /* URL display */
+    .blocked-url {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      word-break: break-all;
+      text-align: left;
+      margin-bottom: 24px;
+      max-height: 60px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .blocked-url::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 20px;
+      background: linear-gradient(transparent, rgba(19,8,8,0.9));
+    }
+
+    /* Reasons */
+    .reasons-box {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .reasons-title {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .reason-line {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 12px;
+      color: #d9a8a8;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+
+    .reason-line:last-child { margin-bottom: 0; }
+
+    .reason-line::before {
+      content: '›';
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Action buttons */
+    .actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .btn-back {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-back:hover  { background: #dc2626; }
+    .btn-back:active { transform: scale(0.97); }
+
+    .btn-proceed {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn-proceed:hover {
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+
+    /* Footer */
+    .card-footer {
+      margin-top: 24px;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'Space Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+
+  <div class="card">
+    <div class="shield">🛡️</div>
+
+    <div class="badge">
+      <div class="badge-dot"></div>
+      Phishing Threat Detected
+    </div>
+
+    <h1>This website may be a phishing attack</h1>
+
+    <p class="subtitle">
+      PhishGuard has blocked this page to protect you from potential identity theft, credential harvesting, or malware.
+    </p>
+
+    <div class="score-pill">
+      <span class="label">RISK SCORE</span>
+      <span class="value" id="scoreDisplay">—</span>
+      <span class="label">/ 100</span>
+    </div>
+
+    <div class="blocked-url" id="urlDisplay">Loading...</div>
+
+    <div class="reasons-box">
+      <div class="reasons-title">Why was this blocked?</div>
+      <div id="reasonsContainer">Loading reasons...</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-back" id="btnBack">
+        ← Go Back to Safety
+      </button>
+      <button class="btn-proceed" id="btnProceed">
+        Proceed Anyway
+      </button>
+    </div>
+
+    <div class="card-footer">
+      Protected by PhishGuard · Rule-Based Analysis
+    </div>
+  </div>
+
+  <script>
+    // ── Parse URL params ─────────────────────────────────────
+    const params  = new URLSearchParams(window.location.search);
+    const blockedUrl = decodeURIComponent(params.get('url') || '');
+    const score      = params.get('score') || '?';
+    let   reasons    = [];
+
+    try {
+      reasons = JSON.parse(decodeURIComponent(params.get('reasons') || '[]'));
+    } catch { reasons = ['URL flagged as dangerous']; }
+
+    // ── Populate UI ──────────────────────────────────────────
+    document.getElementById('urlDisplay').textContent = blockedUrl || 'Unknown URL';
+    document.getElementById('scoreDisplay').textContent = score;
+
+    const container = document.getElementById('reasonsContainer');
+    container.innerHTML = '';
+    reasons.slice(0, 6).forEach(r => {
+      const div = document.createElement('div');
+      div.className = 'reason-line';
+      div.textContent = r;
+      container.appendChild(div);
+    });
+
+    // ── Go Back button ───────────────────────────────────────
+    document.getElementById('btnBack').addEventListener('click', () => {
+      history.length > 1 ? history.back() : window.close();
+    });
+
+    // ── Proceed Anyway ───────────────────────────────────────
+    document.getElementById('btnProceed').addEventListener('click', () => {
+      if (!blockedUrl) return;
+
+      const confirmed = confirm(
+        '⚠️ WARNING: This site was flagged as a phishing threat.\n\n' +
+        'Proceeding may expose your credentials, personal data, or device to attack.\n\n' +
+        'Are you absolutely sure you want to continue?'
+      );
+
+      if (confirmed) {
+        // Notify background to not re-block this URL
+        chrome.runtime.sendMessage(
+          { type: 'PROCEED_ANYWAY', url: blockedUrl },
+          () => { window.location.href = blockedUrl; }
+        );
+      }
+    });
+  </script>
+</body>
+</html>
